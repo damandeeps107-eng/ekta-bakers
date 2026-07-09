@@ -2855,9 +2855,9 @@ input, select, textarea, button {
   height: 100%;
   background: linear-gradient(
     135deg, 
-    rgba(43, 30, 22, 0.88) 0%, 
-    rgba(74, 55, 40, 0.78) 50%, 
-    rgba(43, 30, 22, 0.92) 100%
+    rgba(27, 18, 12, 0.93) 0%, 
+    rgba(43, 30, 22, 0.88) 50%, 
+    rgba(27, 18, 12, 0.95) 100%
   );
   z-index: 2;
 }
@@ -2879,15 +2879,18 @@ input, select, textarea, button {
   color: var(--color-white);
   margin: 1.5rem 0;
   line-height: 1.15;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  /* High contrast shadow to pop out text */
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.85), 0 2px 4px rgba(0, 0, 0, 0.95);
+  font-weight: 800;
 }
 
 .hero-content.full-width .hero-desc {
-  color: var(--color-beige-light);
+  color: #FFFFFF; /* Pure white for high visibility */
   font-size: 1.25rem;
   margin-bottom: 3.5rem;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.95);
   line-height: 1.6;
+  font-weight: 500;
 }
 
 .hero-content.full-width .hero-subtitle {
@@ -2981,4 +2984,25 @@ input, select, textarea, button {
   100% {
     opacity: 0;
   }
+}
+
+
+/* Section Background Transparency to expose body wallpaper */
+.about-section,
+.categories-section,
+.why-us-section,
+.custom-order-section,
+.courses-section,
+.gallery-section,
+.reviews-section,
+.faq-section,
+.contact-section {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Ensure inside content containers have soft contrast card styling if needed */
+.why-us-card, .review-card, .faq-item {
+  background-color: var(--color-white) !important;
+  box-shadow: 0 4px 15px rgba(74, 55, 40, 0.05);
 }
