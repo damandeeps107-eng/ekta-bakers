@@ -478,28 +478,58 @@ document.addEventListener('DOMContentLoaded', () => {
   const studentNameNav = document.getElementById('student-name-nav');
   const btnLogout = document.getElementById('btn-logout');
 
-  // Check auth session on page load
+  // Mobile navbar elements
+  const btnLoginTriggerMobile = document.getElementById('btn-login-trigger-mobile');
+  const btnLogoutMobile = document.getElementById('btn-logout-mobile');
+  const mobileLoginLi = document.getElementById('mobile-login-li');
+  const mobileProfileLi = document.getElementById('mobile-profile-li');
+  const studentNameNavMobile = document.getElementById('student-name-nav-mobile');
+
+  // Check auth session on page load (Syncs both Desktop and Mobile viewports)
   const initNavbarAuth = () => {
     const activeStudent = localStorage.getItem('activeStudent');
     if (activeStudent) {
       const student = JSON.parse(activeStudent);
-      studentNameNav.textContent = student.name.split(' ')[0]; // Show first name
-      guestStateNav.style.display = 'none';
-      studentProfileNav.style.display = 'flex';
+      const firstName = student.name.split(' ')[0];
+      
+      // Desktop state
+      if (studentNameNav) studentNameNav.textContent = firstName;
+      if (guestStateNav) guestStateNav.style.display = 'none';
+      if (studentProfileNav) studentProfileNav.style.display = 'flex';
+      
+      // Mobile state
+      if (studentNameNavMobile) studentNameNavMobile.textContent = firstName;
+      if (mobileLoginLi) mobileLoginLi.style.display = 'none';
+      if (mobileProfileLi) mobileProfileLi.style.display = 'block';
     } else {
-      guestStateNav.style.display = 'inline-flex';
-      studentProfileNav.style.display = 'none';
+      // Desktop state
+      if (guestStateNav) guestStateNav.style.display = 'inline-flex';
+      if (studentProfileNav) studentProfileNav.style.display = 'none';
+      
+      // Mobile state
+      if (mobileLoginLi) mobileLoginLi.style.display = 'block';
+      if (mobileProfileLi) mobileProfileLi.style.display = 'none';
     }
   };
 
-  // Open Auth Modal
+  // Open Auth Modal (Desktop & Mobile)
+  const openAuthModal = () => {
+    authModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    signinError.style.display = 'none';
+    signupError.style.display = 'none';
+    // Close mobile menu if open
+    if (hamburger && navMenu) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  };
+
   if (btnLoginTrigger) {
-    btnLoginTrigger.addEventListener('click', () => {
-      authModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      signinError.style.display = 'none';
-      signupError.style.display = 'none';
-    });
+    btnLoginTrigger.addEventListener('click', openAuthModal);
+  }
+  if (btnLoginTriggerMobile) {
+    btnLoginTriggerMobile.addEventListener('click', openAuthModal);
   }
 
   // Close Auth Modal
@@ -586,11 +616,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Student Log Out
-  btnLogout.addEventListener('click', () => {
+  // Student Log Out (Desktop & Mobile)
+  const handleLogout = () => {
     localStorage.removeItem('activeStudent');
     initNavbarAuth();
-  });
+    // Close mobile menu if open
+    if (hamburger && navMenu) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  };
+
+  if (btnLogout) {
+    btnLogout.addEventListener('click', handleLogout);
+  }
+  if (btnLogoutMobile) {
+    btnLogoutMobile.addEventListener('click', handleLogout);
+  }
 
   // Initialize navbar on load
   initNavbarAuth();
