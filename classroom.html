@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Classroom | Ekta Bakers Academy</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="classroom-body">
+
+  <!-- Lock Overlay (Displayed if not logged in or no courses) -->
+  <div class="classroom-lock" id="classroom-lock">
+    <div class="lock-card">
+      <div id="lock-welcome-view">
+        <i class="fa-solid fa-user-lock lock-icon"></i>
+        <h2>Student Login Required</h2>
+        <p>Please log in with your credentials to access your baking classes and course materials.</p>
+        
+        <form id="classroom-login-form" class="enrollment-form text-left" style="margin-bottom: 1.5rem;">
+          <div class="form-group">
+            <label for="class-email" class="text-left">Email Address</label>
+            <input type="email" id="class-email" placeholder="student@example.com" required style="width:100%;">
+          </div>
+          <div class="form-group">
+            <label for="class-pass" class="text-left">Password</label>
+            <input type="password" id="class-pass" placeholder="••••••••" required style="width:100%;">
+          </div>
+          <div id="class-login-error" class="auth-error-msg" style="display: none; color: #D32F2F; font-size: 0.82rem; font-weight:600; margin-bottom: 0.5rem;"></div>
+          <button type="submit" class="btn btn-primary btn-block">Log In & Start Learning</button>
+        </form>
+
+        <div class="lock-buttons">
+          <a href="index.html" class="btn btn-secondary btn-block">Go back to Homepage</a>
+        </div>
+      </div>
+
+      <div id="lock-denied-view" style="display: none;">
+        <i class="fa-solid fa-circle-xmark lock-icon" style="color: #D32F2F;"></i>
+        <h2>No Purchased Courses</h2>
+        <p>Your account was found, but you have not enrolled in any courses yet.</p>
+        <div class="lock-buttons" style="display: flex; flex-direction:column; gap:1rem;">
+          <a href="index.html#courses" class="btn btn-primary btn-block">Browse Baking Classes</a>
+          <button class="btn btn-secondary btn-block" id="btn-lock-logout">Log Out of Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Classroom Dashboard -->
+  <div class="classroom-container" id="classroom-dashboard" style="display: none;">
+    <!-- Sidebar -->
+    <aside class="classroom-sidebar">
+      <div class="sidebar-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-serif">Ekta</span>
+          <span class="logo-sans">Bakers Academy</span>
+        </a>
+      </div>
+
+      <div class="student-profile">
+        <div class="profile-avatar">
+          <i class="fa-solid fa-user-graduation"></i>
+        </div>
+        <div class="profile-info">
+          <h4 id="student-display-name">Gurpreet Singh</h4>
+          <span class="profile-badge">Student</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-title">Your Purchased Courses</span>
+        <ul class="purchased-courses-list" id="courses-menu">
+          <!-- Dynamically populated -->
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="https://wa.me/917888901847?text=Hello%20Chef%20Ekta,%20I%20have%20a%20doubt%20regarding%20the%20baking%20class." target="_blank" class="btn btn-secondary btn-block btn-sm">
+          <i class="fa-brands fa-whatsapp"></i> Ask Chef Ekta (Doubt Help)
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="classroom-main">
+      <!-- Top header bar -->
+      <header class="classroom-header">
+        <div class="header-welcome">
+          <h1 id="active-course-title">Beginner to Pro Cake Masterclass</h1>
+          <p>Welcome to your learning portal! Let's bake something delicious today.</p>
+        </div>
+        <div class="header-actions">
+          <a href="index.html" class="back-home-link"><i class="fa-solid fa-arrow-left"></i> Back to Main Site</a>
+        </div>
+      </header>
+
+      <!-- Grid layout for Player & Lesson list -->
+      <div class="classroom-grid">
+        <!-- Player Panel -->
+        <div class="player-panel">
+          <div class="video-container">
+            <!-- Simulated Premium Video Player -->
+            <div class="mock-player" id="mock-player">
+              <img src="assets/hero_cake.png" alt="Video cover art" class="player-cover" id="player-cover">
+              <div class="player-overlay">
+                <i class="fa-solid fa-play play-trigger-btn" id="play-btn"></i>
+                <span>Click to Play Lecture</span>
+              </div>
+              <iframe id="video-iframe" src="" style="display: none; border: none; width: 100%; height: 100%;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+          
+          <div class="video-details">
+            <h2 id="active-lesson-title">Lesson 1: Introduction & Kitchen Prep</h2>
+            <p id="active-lesson-desc">In this video, Chef Ekta Mehra explains the essential kitchen setup, basic tools, measurements, and baking pre-requisites to start your baking journey.</p>
+          </div>
+        </div>
+
+        <!-- Lessons & Resources Sidebar Panel -->
+        <div class="lessons-panel">
+          <div class="panel-tab-header">
+            <button class="tab-btn active" id="btn-lessons">Lessons</button>
+            <button class="tab-btn" id="btn-resources">PDF Downloads</button>
+          </div>
+
+          <!-- Lessons List -->
+          <div class="tab-content" id="tab-lessons-content">
+            <ul class="lessons-list" id="lessons-list-container">
+              <!-- Dynamically populated based on active course -->
+            </ul>
+          </div>
+
+          <!-- Resources Downloads -->
+          <div class="tab-content" id="tab-resources-content" style="display: none;">
+            <div class="resources-wrapper">
+              <p class="resources-intro">Download your reference cookbooks, worksheets, and syllabus PDFs below.</p>
+              <div class="resource-card-item">
+                <div class="res-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                <div class="res-info">
+                  <h4>Sponge Baking Recipes & Methods</h4>
+                  <span>PDF eBook (14.2 MB)</span>
+                </div>
+                <a href="#" class="res-download-btn"><i class="fa-solid fa-download"></i></a>
+              </div>
+              <div class="resource-card-item">
+                <div class="res-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                <div class="res-info">
+                  <h4>Sharp Edge Frosting Secret Guides</h4>
+                  <span>PDF Manual (8.5 MB)</span>
+                </div>
+                <a href="#" class="res-download-btn"><i class="fa-solid fa-download"></i></a>
+              </div>
+              <div class="resource-card-item">
+                <div class="res-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                <div class="res-info">
+                  <h4>Equipment & Ingredient Sourcing List</h4>
+                  <span>PDF Document (2.1 MB)</span>
+                </div>
+                <a href="#" class="res-download-btn"><i class="fa-solid fa-download"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Internal Script for Portal Logic -->
+    <!-- Internal Script for Portal Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Course Data
+      const coursesData = {
+        "cake-masterclass": {
+          title: "Beginner to Pro Cake Masterclass",
+          cover: "assets/hero_cake.png",
+          lessons: [
+            {
+              title: "Lesson 1: Introduction & Baking Tools Setup",
+              desc: "In this lesson, Chef Ekta Mehra guides you through the basic equipment, measuring rules, and prepping the cake tins correctly.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            },
+            {
+              title: "Lesson 2: Baking the Flawless Vanilla Sponge",
+              desc: "Learn to bake a moist, tall vanilla sponge cake. Learn batter consistency, baking temperature secrets, and cooling down rules.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            },
+            {
+              title: "Lesson 3: Whipped Cream Layering & Torting",
+              desc: "Chef Ekta demonstrates how to cut the sponge into clean layers, soak it correctly, and fill it with smooth whipped cream.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            },
+            {
+              title: "Lesson 4: Frosting Sharp Edges & Pipe Decorating",
+              desc: "Master the scraper technique to get sharp bakery-style edges and pipes, including borders, stars, and rose swirls.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            }
+          ]
+        },
+        "cupcakes-brownies": {
+          title: "Artisanal Cupcakes & Brownies Workshop",
+          cover: "assets/cupcakes.png",
+          lessons: [
+            {
+              title: "Lesson 1: The Ultimate Fudgy Chocolate Brownie",
+              desc: "Learn to make decadent, dense, chocolatey brownies with that perfect shiny crinkle top. We will cover classic and walnut variations.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            },
+            {
+              title: "Lesson 2: Fluffy Red Velvet & Chocolate Cupcakes",
+              desc: "Bake soft, airy cupcakes that rise beautifully. Covers batter aeration and oven management.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            },
+            {
+              title: "Lesson 3: Premium Piping & Cream Cheese Frostings",
+              desc: "Master cream cheese frosting and rich chocolate ganache piping techniques with stars, closed star, and round nozzles.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            }
+          ]
+        },
+        "festive-hampers": {
+          title: "Festive Hampers & Teatime Treats",
+          cover: "assets/dessert_box.png",
+          lessons: [
+            {
+              title: "Lesson 1: Commercial Baking: Tea Cakes & Loaves",
+              desc: "Bake premium teatime dry cakes like Marble Cake, Lemon Loaf, and Butter Cookies with extended shelf life.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            },
+            {
+              title: "Lesson 2: Elegant Macarons & Piping Shells",
+              desc: "A step-by-step master guide to baking macarons without cracking. Learn fold ratios, piping shells, and double baking.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            },
+            {
+              title: "Lesson 3: Commercial Gift Packaging & Pricing",
+              desc: "Chef Ekta guides you on how to pack, label, price, and sell your sweet hampers during diwali, wedding, and festive seasons.",
+              video: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            }
+          ]
+        }
+      };
+
+      let activeUser = null;
+
+      // Function to check login session
+      function checkAuth() {
+        const userSession = localStorage.getItem('activeStudent');
+        if (userSession) {
+          activeUser = JSON.parse(userSession);
+          // Check if user has purchased any courses
+          if (activeUser.purchasedCourses && activeUser.purchasedCourses.length > 0) {
+            // Unlock
+            document.getElementById('classroom-lock').style.display = 'none';
+            document.getElementById('classroom-dashboard').style.display = 'flex';
+            document.getElementById('student-display-name').textContent = activeUser.name;
+            
+            // Choose active course (fallback to first purchased)
+            const activeCourseKey = localStorage.getItem('courseKey') || activeUser.purchasedCourses[0];
+            loadCourse(activeCourseKey);
+            renderCoursesMenu(activeCourseKey);
+          } else {
+            // Logged in but no courses
+            document.getElementById('classroom-lock').style.display = 'flex';
+            document.getElementById('lock-welcome-view').style.display = 'none';
+            document.getElementById('lock-denied-view').style.display = 'block';
+            document.getElementById('classroom-dashboard').style.display = 'none';
+          }
+        } else {
+          // Not logged in
+          document.getElementById('classroom-lock').style.display = 'flex';
+          document.getElementById('lock-welcome-view').style.display = 'block';
+          document.getElementById('lock-denied-view').style.display = 'none';
+          document.getElementById('classroom-dashboard').style.display = 'none';
+        }
+      }
+
+      // Handle Class Login Form submit
+      const loginForm = document.getElementById('classroom-login-form');
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('class-email').value.trim().toLowerCase();
+        const password = document.getElementById('class-pass').value;
+        const errorEl = document.getElementById('class-login-error');
+
+        const usersList = JSON.parse(localStorage.getItem('studentsList') || '{}');
+        const user = usersList[email];
+
+        if (user && user.password === password) {
+          errorEl.style.display = 'none';
+          // Save active session
+          localStorage.setItem('activeStudent', JSON.stringify(user));
+          checkAuth();
+        } else {
+          errorEl.textContent = "Invalid email address or password!";
+          errorEl.style.display = 'block';
+        }
+      });
+
+      // Handle Lock Logout button
+      document.getElementById('btn-lock-logout').addEventListener('click', () => {
+        localStorage.removeItem('activeStudent');
+        checkAuth();
+      });
+
+      // Render purchased courses menu in sidebar
+      function renderCoursesMenu(activeKey) {
+        const menu = document.getElementById('courses-menu');
+        menu.innerHTML = '';
+        
+        Object.keys(coursesData).forEach(key => {
+          const course = coursesData[key];
+          const li = document.createElement('li');
+          const hasAccess = activeUser && activeUser.purchasedCourses.includes(key);
+
+          const a = document.createElement('a');
+          a.href = '#';
+          a.className = `course-menu-item ${key === activeKey ? 'active' : ''} ${!hasAccess ? 'locked-menu-item' : ''}`;
+          
+          let icon = 'fa-cake-candles';
+          if (key === 'cupcakes-brownies') icon = 'fa-cookie-bite';
+          if (key === 'festive-hampers') icon = 'fa-gift';
+
+          if (hasAccess) {
+            a.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${course.title}</span>`;
+            a.addEventListener('click', (e) => {
+              e.preventDefault();
+              localStorage.setItem('courseKey', key);
+              // Set active menu highlight
+              document.querySelectorAll('.course-menu-item').forEach(el => el.classList.remove('active'));
+              a.classList.add('active');
+              loadCourse(key);
+            });
+          } else {
+            a.innerHTML = `<i class="fa-solid fa-lock" style="color: #7E7C7A;"></i> <span style="text-decoration: line-through; opacity: 0.5;">${course.title}</span> <span class="badge-locked">Buy</span>`;
+            a.addEventListener('click', (e) => {
+              e.preventDefault();
+              alert("You haven't purchased this course yet. Please visit the homepage to enroll!");
+            });
+          }
+
+          li.appendChild(a);
+          menu.appendChild(li);
+        });
+      }
+
+      // Load active course contents
+      function loadCourse(courseKey) {
+        const course = coursesData[courseKey] || coursesData["cake-masterclass"];
+        document.getElementById('active-course-title').textContent = course.title;
+        document.getElementById('player-cover').src = course.cover;
+        
+        // Reset player iframe
+        const iframe = document.getElementById('video-iframe');
+        iframe.style.display = 'none';
+        iframe.src = '';
+        document.getElementById('mock-player').querySelector('.player-overlay').style.display = 'flex';
+
+        // Load Lessons List
+        const listContainer = document.getElementById('lessons-list-container');
+        listContainer.innerHTML = '';
+
+        course.lessons.forEach((lesson, index) => {
+          const li = document.createElement('li');
+          li.className = `lesson-item ${index === 0 ? 'active' : ''}`;
+          li.innerHTML = `
+            <div class="lesson-num">${index + 1}</div>
+            <div class="lesson-info">
+              <h4>${lesson.title}</h4>
+              <span>Play Video Lesson</span>
+            </div>
+            <i class="fa-solid fa-circle-play play-icon"></i>
+          `;
+
+          li.addEventListener('click', () => {
+            // Update active lesson list style
+            document.querySelectorAll('.lesson-item').forEach(item => item.classList.remove('active'));
+            li.classList.add('active');
+
+            // Load Lesson to Player
+            document.getElementById('active-lesson-title').textContent = lesson.title;
+            document.getElementById('active-lesson-desc').textContent = lesson.desc;
+
+            // Load Video in Iframe
+            iframe.src = lesson.video;
+            iframe.style.display = 'block';
+            document.getElementById('mock-player').querySelector('.player-overlay').style.display = 'none';
+          });
+
+          listContainer.appendChild(li);
+        });
+
+        // Set initial details for Lesson 1
+        const firstLesson = course.lessons[0];
+        document.getElementById('active-lesson-title').textContent = firstLesson.title;
+        document.getElementById('active-lesson-desc').textContent = firstLesson.desc;
+
+        // Play Button Trigger on Cover
+        const playBtn = document.getElementById('play-btn');
+        playBtn.onclick = () => {
+          iframe.src = firstLesson.video;
+          iframe.style.display = 'block';
+          document.getElementById('mock-player').querySelector('.player-overlay').style.display = 'none';
+        };
+      }
+
+      // Tabs Logic (Lessons vs Resources)
+      const btnLessons = document.getElementById('btn-lessons');
+      const btnResources = document.getElementById('btn-resources');
+      const tabLessons = document.getElementById('tab-lessons-content');
+      const tabResources = document.getElementById('tab-resources-content');
+
+      btnLessons.addEventListener('click', () => {
+        btnLessons.classList.add('active');
+        btnResources.classList.remove('active');
+        tabLessons.style.display = 'block';
+        tabResources.style.display = 'none';
+      });
+
+      btnResources.addEventListener('click', () => {
+        btnResources.classList.add('active');
+        btnLessons.classList.remove('active');
+        tabLessons.style.display = 'none';
+        tabResources.style.display = 'block';
+      });
+
+      // Initial Auth Check
+      checkAuth();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Freshly handcrafted homemade cakes and premium bakery delights in Barnala, Punjab. Founded by Chef Ekta Mehra in 2019. Order custom eggless cakes, cupcakes, brownies, and festive hampers.">
+  <meta name="keywords" content="Ekta Bakers, bakery Barnala, homemade cakes Barnala, Chef Ekta Mehra, customized cakes Barnala, eggless cakes Barnala, Punjab home bakery, cupcakes Barnala, brownies Barnala">
+  <meta name="author" content="Chef Ekta Mehra">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ektabakers.com/">
+  <meta property="og:title" content="Ekta Bakers - Freshly Baked Happiness, Made with Love | Barnala, Punjab">
+  <meta property="og:description" content="Since 2019, Chef Ekta Mehra has handcrafted premium homemade cakes, pastries, brownies, and dessert boxes using high-quality ingredients. Delivery across Barnala.">
+  <meta property="og:image" content="assets/hero_cake.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Ekta Bakers - Freshly Baked Happiness, Made with Love">
+  <meta property="twitter:description" content="Premium homemade cakes, cupcakes, and dessert boxes in Barnala, Punjab. Baked fresh by Chef Ekta Mehra since 2019.">
+  <meta property="twitter:image" content="assets/hero_cake.png">
+
+  <title>Ekta Bakers | Homemade Premium Bakery in Barnala, Punjab</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="main-header" id="header">
+    <div class="container nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-serif">Ekta</span>
+        <span class="logo-sans">Bakers</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#categories" class="nav-link">Our Cakes</a></li>
+          <li><a href="#custom-order" class="nav-link">Custom Orders</a></li>
+          <li><a href="#courses" class="nav-link">Baking Classes</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Guest Student State -->
+        <button class="btn btn-secondary btn-nav" id="btn-login-trigger">
+          <i class="fa-solid fa-user-lock"></i> Sign In
+        </button>
+        
+        <!-- Logged In Student State (Initially Hidden) -->
+        <div class="student-profile-nav" id="student-profile-nav" style="display: none;">
+          <span class="welcome-label">Hello, <strong id="student-name-nav">Student</strong></span>
+          <a href="classroom.html" class="btn btn-secondary btn-nav">Classroom</a>
+          <button class="btn btn-primary btn-nav btn-icon-only" id="btn-logout" title="Log Out">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+
+        <a href="https://wa.me/917888901847?text=Hello%20Ekta%20Bakers,%20I%20would%20like%20to%20order%20a%20cake." target="_blank" class="btn btn-primary btn-nav">
+          <i class="fa-brands fa-whatsapp"></i> Order Cake
+        </a>
+        <button class="hamburger-menu" id="hamburger" aria-label="Toggle navigation menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="hero-badge">Homemade & Freshly Baked Since 2019</span>
+        <h1 class="hero-headline">Freshly Baked Happiness, <span class="text-accent">Made with Love.</span></h1>
+        <p class="hero-subheading">
+          Since 2019, Ekta Bakers has been creating handcrafted homemade cakes and bakery delights using premium ingredients and authentic recipes. Every cake is baked fresh to make your celebrations unforgettable.
+        </p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/917888901847?text=Hello%20Ekta%20Bakers,%20I%20would%20like%20to%20order%20a%20cake." target="_blank" class="btn btn-primary">
+            <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+          </a>
+          <a href="#gallery" class="btn btn-secondary">
+            View Our Cakes
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-circle-bg"></div>
+        <img src="assets/hero_cake.png" alt="Luxurious Handcrafted Wedding Cake by Ekta Bakers" class="hero-image">
+        <div class="hero-floating-card floating-card-1">
+          <i class="fa-solid fa-star text-gold"></i>
+          <div>
+            <h4>5-Star Rated</h4>
+            <p>Loved by Barnala locals</p>
+          </div>
+        </div>
+        <div class="hero-floating-card floating-card-2">
+          <i class="fa-solid fa-cookie-bite text-gold"></i>
+          <div>
+            <h4>100% Eggless</h4>
+            <p>Available on request</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about-section section-padding" id="about">
+    <div class="container about-container">
+      <div class="about-images">
+        <div class="about-img-large">
+          <img src="assets/birthday_cake.png" alt="Chef Ekta Mehra's signature pastel birthday cake design">
+        </div>
+        <div class="about-experience-badge">
+          <span class="badge-years">6+</span>
+          <span class="badge-text">Years of<br>Sweetness</span>
+        </div>
+      </div>
+      
+      <div class="about-content">
+        <span class="section-subtitle">Our Story</span>
+        <h2 class="section-title">Crafting Sweet Memories in Barnala</h2>
+        <p class="about-text">
+          <strong>Ekta Bakers</strong> is a trusted homemade bakery founded and nurtured by <strong>Chef Ekta Mehra</strong>. Starting our journey in 2019 in Barnala, Punjab, we have dedicated ourselves to the art of creating premium-quality baked goods that taste as spectacular as they look.
+        </p>
+        <p class="about-text">
+          We specialize in freshly baked cakes, pastries, and artisanal desserts prepared with love, creativity, and clean ingredients. Without using mass-production techniques or artificial preservatives, every order is handcrafted to ensure customizable luxury tailored to your celebrations.
+        </p>
+        
+        <div class="about-stats-grid">
+          <div class="stat-item">
+            <i class="fa-solid fa-cake-candles stat-icon"></i>
+            <h3 class="stat-number">100%</h3>
+            <p class="stat-label">Homemade & Safe</p>
+          </div>
+          <div class="stat-item">
+            <i class="fa-solid fa-heart stat-icon"></i>
+            <h3 class="stat-number">2000+</h3>
+            <p class="stat-label">Cakes Delivered</p>
+          </div>
+          <div class="stat-item">
+            <i class="fa-solid fa-award stat-icon"></i>
+            <h3 class="stat-number">Premium</h3>
+            <p class="stat-label">Quality Ingredients</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Categories / Menu Section -->
+  <section class="categories-section section-padding" id="categories">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Explore Our Menu</span>
+        <h2 class="section-title">Handcrafted Categories</h2>
+        <p class="section-desc">From grand multi-tier wedding cakes to dainty sweet treats, we bake everything to perfection.</p>
+      </div>
+
+      <div class="categories-grid">
+        <!-- Birthday Cakes -->
+        <div class="category-card">
+          <div class="category-img-wrapper">
+            <img src="assets/birthday_cake.png" alt="Birthday Cakes">
+          </div>
+          <div class="category-info">
+            <h3>Birthday Cakes</h3>
+            <p>Chic, modern, and customized designs for all ages.</p>
+            <a href="#custom-order" class="category-link">Design Yours <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Wedding Cakes -->
+        <div class="category-card">
+          <div class="category-img-wrapper">
+            <img src="assets/hero_cake.png" alt="Wedding Cakes">
+          </div>
+          <div class="category-info">
+            <h3>Wedding Cakes</h3>
+            <p>Elegant multi-tiered centerpieces decorated with pure luxury.</p>
+            <a href="#custom-order" class="category-link">Design Yours <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Cupcakes -->
+        <div class="category-card">
+          <div class="category-img-wrapper">
+            <img src="assets/cupcakes.png" alt="Cupcakes">
+          </div>
+          <div class="category-info">
+            <h3>Cupcakes</h3>
+            <p>Dainty, fluffy cakes with smooth champagne-gold frostings.</p>
+            <a href="#custom-order" class="category-link">Design Yours <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Brownies -->
+        <div class="category-card">
+          <div class="category-img-wrapper">
+            <img src="assets/brownies.png" alt="Brownies">
+          </div>
+          <div class="category-info">
+            <h3>Brownies</h3>
+            <p>Decadent, fudgy chocolate squares dusted with cocoa sugar.</p>
+            <a href="#custom-order" class="category-link">Design Yours <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Dessert Boxes & Hampers -->
+        <div class="category-card">
+          <div class="category-img-wrapper">
+            <img src="assets/dessert_box.png" alt="Dessert Boxes & Hampers">
+          </div>
+          <div class="category-info">
+            <h3>Dessert Boxes & Hampers</h3>
+            <p>Artisanal macarons, cookies, and pastries curated for gifting.</p>
+            <a href="#custom-order" class="category-link">Design Yours <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Full List of Categories Tags -->
+      <div class="all-categories-tags">
+        <span class="tag-title">Our Full Range:</span>
+        <span class="category-tag">Birthday Cakes</span>
+        <span class="category-tag">Anniversary Cakes</span>
+        <span class="category-tag">Wedding Cakes</span>
+        <span class="category-tag">Theme Cakes</span>
+        <span class="category-tag">Cupcakes</span>
+        <span class="category-tag">Pastries</span>
+        <span class="category-tag">Brownies</span>
+        <span class="category-tag">Cookies</span>
+        <span class="category-tag">Dessert Boxes</span>
+        <span class="category-tag">Festive Hampers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-us-section section-padding bg-warm">
+    <div class="container why-us-container">
+      <div class="why-us-content">
+        <span class="section-subtitle">Our Promise</span>
+        <h2 class="section-title">Why Barnala Trusts Ekta Bakers</h2>
+        <p class="section-desc">We bake with passion, making sure every detail aligns with our commitment to quality.</p>
+        
+        <div class="why-us-grid">
+          <div class="why-us-item">
+            <div class="why-us-icon-wrapper">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <div>
+              <h3>Freshly Baked Daily</h3>
+              <p>We never stock or freeze. Your order is baked fresh from scratch only after you confirm.</p>
+            </div>
+          </div>
+
+          <div class="why-us-item">
+            <div class="why-us-icon-wrapper">
+              <i class="fa-solid fa-house-chimney"></i>
+            </div>
+            <div>
+              <h3>100% Homemade</h3>
+              <p>Authentic taste made in a clean home kitchen by Chef Ekta Mehra herself.</p>
+            </div>
+          </div>
+
+          <div class="why-us-item">
+            <div class="why-us-icon-wrapper">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <div>
+              <h3>Premium Ingredients</h3>
+              <p>We use high-grade butter, premium chocolate, and fresh dairy. No compromises.</p>
+            </div>
+          </div>
+
+          <div class="why-us-item">
+            <div class="why-us-icon-wrapper">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              <h3>Beautiful Custom Designs</h3>
+              <p>Share any design, and we will sculpt it into a beautiful reality.</p>
+            </div>
+          </div>
+
+          <div class="why-us-item">
+            <div class="why-us-icon-wrapper">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <div>
+              <h3>Egg & Eggless Options</h3>
+              <p>We offer pure vegetarian (eggless) baking options prepared with dedicated utensils.</p>
+            </div>
+          </div>
+
+          <div class="why-us-item">
+            <div class="why-us-icon-wrapper">
+              <i class="fa-solid fa-hand-holding-hand"></i>
+            </div>
+            <div>
+              <h3>Hygienic Preparation</h3>
+              <p>Strict health, hygiene, and sanitization protocols are maintained throughout the process.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="why-us-image">
+        <img src="assets/cupcakes.png" alt="Beautifully iced premium cupcakes representing quality">
+        <div class="why-badge">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Trusted Since 2019</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Cake Section / Interactive Inquiry Form -->
+  <section class="custom-order-section section-padding" id="custom-order">
+    <div class="container custom-order-container">
+      <div class="custom-order-info">
+        <span class="section-subtitle">Bespoke Creations</span>
+        <h2 class="section-title">Design Your Dream Cake</h2>
+        <p class="section-desc">
+          Have a specific design, flavor, or theme in mind? Use our interactive cake builder to specify your preferences. We will calculate the estimated size and create a customized detail sheet to start your WhatsApp inquiry.
+        </p>
+        
+        <div class="interactive-preview-card">
+          <h3>Your Cake Preview</h3>
+          <div class="preview-details">
+            <div class="preview-line">
+              <span class="preview-label">Flavor:</span>
+              <span class="preview-val" id="val-flavor">Chocolate Fudge</span>
+            </div>
+            <div class="preview-line">
+              <span class="preview-label">Weight:</span>
+              <span class="preview-val" id="val-weight">1.0 Kg</span>
+            </div>
+            <div class="preview-line">
+              <span class="preview-label">Theme:</span>
+              <span class="preview-val" id="val-theme">Birthday</span>
+            </div>
+            <div class="preview-line">
+              <span class="preview-label">Diet Option:</span>
+              <span class="preview-val" id="val-eggless">Eggless (Pure Veg)</span>
+            </div>
+            <div class="preview-line">
+              <span class="preview-label">Message:</span>
+              <span class="preview-val italic" id="val-message">"Happy Birthday"</span>
+            </div>
+            <div class="preview-line">
+              <span class="preview-label">Delivery Date:</span>
+              <span class="preview-val" id="val-date">Select date</span>
+            </div>
+          </div>
+          <div class="preview-quote-box">
+            <p>Estimates and options will be discussed directly on WhatsApp to finalize your design.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="custom-order-form-wrapper">
+        <form class="custom-cake-form" id="cake-builder-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cake-flavor">Select Flavor</label>
+              <select id="cake-flavor" name="flavor" required>
+                <option value="Chocolate Fudge" selected>Chocolate Fudge (Best Seller)</option>
+                <option value="Red Velvet">Red Velvet Premium</option>
+                <option value="Vanilla Bean">Vanilla Bean Classic</option>
+                <option value="Butterscotch">Butterscotch Crunch</option>
+                <option value="Strawberry Delight">Strawberry Fresh</option>
+                <option value="Pineapple Fresh">Pineapple Paradise</option>
+                <option value="Mango Season">Fresh Mango (Seasonal)</option>
+                <option value="Custom Flavor">Other / Custom Flavor</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cake-weight">Weight (Kg)</label>
+              <select id="cake-weight" name="weight" required>
+                <option value="0.5 Kg">0.5 Kg (Min. Size)</option>
+                <option value="1.0 Kg" selected>1.0 Kg (Standard)</option>
+                <option value="1.5 Kg">1.5 Kg</option>
+                <option value="2.0 Kg">2.0 Kg</option>
+                <option value="3.0 Kg+">3.0 Kg or More (Multi-tier)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cake-theme">Occasion / Theme</label>
+              <select id="cake-theme" name="theme" required>
+                <option value="Birthday" selected>Birthday Celebration</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Wedding">Wedding Grandeur</option>
+                <option value="Cartoon / Kids">Cartoon / Kids Theme</option>
+                <option value="Minimalist / Korean">Minimalist / Korean Style</option>
+                <option value="Floral Elegant">Floral Elegant</option>
+                <option value="Custom Theme">Custom Conceptual Theme</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Egg / Eggless Option</label>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="diet" value="Eggless (Pure Veg)" checked>
+                  <span>Eggless</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="diet" value="Regular (With Egg)">
+                  <span>With Egg</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cake-color">Preferred Colors / Icing Details</label>
+            <input type="text" id="cake-color" name="color" placeholder="e.g. Pastel pink and white, gold accents, lavender theme">
+          </div>
+
+          <div class="form-group">
+            <label for="cake-message">Message on the Cake</label>
+            <input type="text" id="cake-message" name="message" value="Happy Birthday" placeholder="e.g. Happy 25th Birthday Rahul">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cake-date">Preferred Delivery / Pickup Date</label>
+              <input type="date" id="cake-date" name="delivery_date" required>
+            </div>
+            <div class="form-group">
+              <label for="client-name">Your Name</label>
+              <input type="text" id="client-name" name="client_name" placeholder="Enter your name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cake-notes">Special Instructions or Design Description</label>
+            <textarea id="cake-notes" name="notes" rows="3" placeholder="Describe any theme details, or reference design details..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-brands fa-whatsapp"></i> Send Cake Inquiry on WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Baking Classes Section -->
+  <section class="courses-section section-padding bg-warm" id="courses">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Learn from Chef Ekta</span>
+        <h2 class="section-title">Baking Classes & Workshops</h2>
+        <p class="section-desc">Unlock the secrets of premium baking. Join our hands-on workshops in Barnala, designed for both beginners and home-bakers.</p>
+      </div>
+
+      <div class="courses-grid">
+        <!-- Course 1 -->
+        <div class="course-card">
+          <div class="course-badge">Most Popular</div>
+          <div class="course-icon-box">
+            <i class="fa-solid fa-cake-candles"></i>
+          </div>
+          <div class="course-content">
+            <h3>Beginner to Pro Cake Masterclass</h3>
+            <div class="course-meta-row">
+              <span class="course-duration"><i class="fa-regular fa-clock"></i> 3-Day Intensive</span>
+              <span class="course-price">₹4,999</span>
+            </div>
+            <p class="course-desc">Master the art of sponge baking, whipped cream leveling, sharp edges, and elegant piping. 100% hands-on training.</p>
+            <ul class="course-highlights">
+              <li><i class="fa-solid fa-check"></i> Sponge Baking from scratch</li>
+              <li><i class="fa-solid fa-check"></i> Layering & Torting techniques</li>
+              <li><i class="fa-solid fa-check"></i> Sharp Edges with Whipped Cream</li>
+              <li><i class="fa-solid fa-check"></i> Piping & Floral decorations</li>
+            </ul>
+            <div class="course-footer">
+              <span class="course-mode"><i class="fa-solid fa-location-dot"></i> In-Person (Barnala)</span>
+              <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Beginner to Pro Cake Masterclass" data-price="₹4,999">
+                <i class="fa-solid fa-cart-shopping"></i> Buy Course
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card">
+          <div class="course-icon-box">
+            <i class="fa-solid fa-cookie-bite"></i>
+          </div>
+          <div class="course-content">
+            <h3>Artisanal Cupcakes & Brownies</h3>
+            <div class="course-meta-row">
+              <span class="course-duration"><i class="fa-regular fa-clock"></i> 1-Day Workshop</span>
+              <span class="course-price">₹1,999</span>
+            </div>
+            <p class="course-desc">Learn to bake decadent, rich chocolate brownies and fluffy gourmet cupcakes with specialty frostings and decorations.</p>
+            <ul class="course-highlights">
+              <li><i class="fa-solid fa-check"></i> Classic Fudgy & Walnut Brownies</li>
+              <li><i class="fa-solid fa-check"></i> Perfect Cupcake batter rise</li>
+              <li><i class="fa-solid fa-check"></i> Cream cheese & Chocolate ganache</li>
+              <li><i class="fa-solid fa-check"></i> Flawless frosting piping styles</li>
+            </ul>
+            <div class="course-footer">
+              <span class="course-mode"><i class="fa-solid fa-location-dot"></i> In-Person / Online</span>
+              <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Artisanal Cupcakes & Brownies Workshop" data-price="₹1,999">
+                <i class="fa-solid fa-cart-shopping"></i> Buy Course
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card">
+          <div class="course-icon-box">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <div class="course-content">
+            <h3>Festive Hampers & Teatime Treats</h3>
+            <div class="course-meta-row">
+              <span class="course-duration"><i class="fa-regular fa-clock"></i> 2-Day Masterclass</span>
+              <span class="course-price">₹3,499</span>
+            </div>
+            <p class="course-desc">Start your home bakery business! Learn to bake commercial-scale cookies, tea cakes, and packaging aesthetics.</p>
+            <ul class="course-highlights">
+              <li><i class="fa-solid fa-check"></i> Premium Cookies & Macarons</li>
+              <li><i class="fa-solid fa-check"></i> Moist Loaf & Bundt Teacakes</li>
+              <li><i class="fa-solid fa-check"></i> Shelf-life & Preserving tips</li>
+              <li><i class="fa-solid fa-check"></i> Gifting hamper design styles</li>
+            </ul>
+            <div class="course-footer">
+              <span class="course-mode"><i class="fa-solid fa-location-dot"></i> In-Person (Barnala)</span>
+              <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Festive Hampers & Teatime Treats Masterclass" data-price="₹3,499">
+                <i class="fa-solid fa-cart-shopping"></i> Buy Course
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="courses-features">
+        <div class="c-feature">
+          <i class="fa-solid fa-medal"></i>
+          <h4>Certificate Provided</h4>
+          <p>Get a signed completion certificate from Chef Ekta Mehra.</p>
+        </div>
+        <div class="c-feature">
+          <i class="fa-solid fa-kitchen-set"></i>
+          <h4>All Materials Included</h4>
+          <p>High-grade baking ingredients and tools are provided in class.</p>
+        </div>
+        <div class="c-feature">
+          <i class="fa-solid fa-phone-volume"></i>
+          <h4>Post-Class Support</h4>
+          <p>Get Lifetime WhatsApp group support for solving baking doubts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Masonry Gallery Section -->
+  <section class="gallery-section section-padding bg-warm" id="gallery">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Visual Delights</span>
+        <h2 class="section-title">Our Baked Masterpieces</h2>
+        <p class="section-desc">Browse through some of our handcrafted cakes, gourmet brownies, and hampers baked locally in Barnala.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All Delights</button>
+        <button class="filter-btn" data-filter="cakes">Custom Cakes</button>
+        <button class="filter-btn" data-filter="desserts">Cupcakes & Brownies</button>
+        <button class="filter-btn" data-filter="hampers">Hampers & Boxes</button>
+      </div>
+
+      <!-- Masonry Grid -->
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Item 1: Wedding Cake (Cakes) -->
+        <div class="gallery-item cakes" data-title="Luxury Ivory Rose Wedding Cake">
+          <img src="assets/hero_cake.png" alt="Luxury Ivory Rose Wedding Cake - Customized tier cake by Chef Ekta Mehra">
+          <div class="gallery-hover-overlay">
+            <div class="gallery-hover-content">
+              <span class="item-cat">Custom Cakes</span>
+              <h3>Grand Floral Wedding Cake</h3>
+              <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i> View Close Up</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: Birthday Cake (Cakes) -->
+        <div class="gallery-item cakes" data-title="Modern Pastel Drip Cake">
+          <img src="assets/birthday_cake.png" alt="Modern Pastel Drip Cake - Birthday cake with macarons and berries">
+          <div class="gallery-hover-overlay">
+            <div class="gallery-hover-content">
+              <span class="item-cat">Custom Cakes</span>
+              <h3>Modern Pastel Drip Cake</h3>
+              <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i> View Close Up</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: Cupcakes (Desserts) -->
+        <div class="gallery-item desserts" data-title="Gourmet Gold Cupcakes">
+          <img src="assets/cupcakes.png" alt="Gourmet Gold Cupcakes - Fluffy champagne gold iced cupcakes with edible pearls">
+          <div class="gallery-hover-overlay">
+            <div class="gallery-hover-content">
+              <span class="item-cat">Cupcakes & Brownies</span>
+              <h3>Gourmet Gold Cupcakes</h3>
+              <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i> View Close Up</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4: Brownies (Desserts) -->
+        <div class="gallery-item desserts" data-title="Decadent Fudgy Chocolate Brownies">
+          <img src="assets/brownies.png" alt="Decadent Fudgy Chocolate Brownies - Double chocolate moist cake bars">
+          <div class="gallery-hover-overlay">
+            <div class="gallery-hover-content">
+              <span class="item-cat">Cupcakes & Brownies</span>
+              <h3>Fudgy Chocolate Brownies</h3>
+              <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i> View Close Up</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5: Dessert Box (Hampers) -->
+        <div class="gallery-item hampers" data-title="Luxury Macaron & Cookie Gift Box">
+          <img src="assets/dessert_box.png" alt="Luxury Macaron & Cookie Gift Box - Assorted sweets and cookies for gifts">
+          <div class="gallery-hover-overlay">
+            <div class="gallery-hover-content">
+              <span class="item-cat">Hampers & Boxes</span>
+              <h3>Premium Dessert Hamper</h3>
+              <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i> View Close Up</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal for Gallery -->
+  <div class="lightbox-modal" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
+    <div class="lightbox-content">
+      <img src="" id="lightbox-img" alt="Enlarged bakery creation">
+      <div class="lightbox-caption" id="lightbox-caption">Caption text goes here</div>
+    </div>
+  </div>
+
+  <!-- Testimonials / Reviews Section -->
+  <section class="reviews-section section-padding" id="reviews">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Words of Love</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-desc">We take pride in being a trusted home bakery. Here are reviews from our lovely patrons in Barnala.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Chef Ekta made our wedding cake and it was absolutely stunning! It tasted as good as it looked. Best premium bakery in Barnala without doubt! Everyone at the wedding kept asking where the cake was from."
+          </p>
+          <div class="review-user">
+            <div class="user-initial">S</div>
+            <div>
+              <h4>Simran Kaur</h4>
+              <p class="user-location">Barnala, Punjab</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "The custom chocolate fudge theme cake for my son's first birthday was fantastic. It was 100% eggless, super moist, and decorated exactly like the picture I shared. Thank you, Chef Ekta, for making the day extra special."
+          </p>
+          <div class="review-user">
+            <div class="user-initial">A</div>
+            <div>
+              <h4>Amit Sharma</h4>
+              <p class="user-location">Barnala, Punjab</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Highly recommend their brownies and cupcakes. The texture is extremely fudgy and they are not overly sweet. You can tell they use premium ingredients. The packaging is also beautiful and makes a great gift!"
+          </p>
+          <div class="review-user">
+            <div class="user-initial">P</div>
+            <div>
+              <h4>Priya Bansal</h4>
+              <p class="user-location">Barnala, Punjab</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Section -->
+  <section class="faq-section section-padding bg-warm" id="faq">
+    <div class="container faq-container">
+      <div class="faq-info">
+        <span class="section-subtitle">Common Queries</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Got questions about how to order, eggless variants, freshness, or payments? Find all answers here.</p>
+        <div class="faq-illustration">
+          <i class="fa-solid fa-circle-question"></i>
+        </div>
+      </div>
+
+      <div class="faq-accordion-wrapper">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>How do I place an order?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>You can easily place an order by clicking our "Order on WhatsApp" buttons. For custom cakes, we recommend using the visual builder form above. Once you submit the form, a structured template will be generated for you to send to Chef Ekta on WhatsApp. We will discuss references, sizes, and finalize details.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>How far in advance should I place my order?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>For custom cakes and large dessert hampers, we require at least 24 to 48 hours notice. This gives us enough time to prepare specialized toppings, source fresh components, and bake everything to perfection. For urgent orders, please call us directly to check availability.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Do you offer eggless options?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>Yes, absolutely! 100% of our menu (cakes, cupcakes, brownies, cookies, hampers) can be prepared eggless (vegetarian) upon request. We maintain strict separation of baking tools and ingredients to ensure complete dietary safety.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Do you deliver in Barnala, Punjab?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>Yes, we offer home delivery across Barnala, Punjab, and select nearby locations. Delivery charges are calculated based on your distance. Alternatively, you can schedule a self-pickup from our home kitchen.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>What payment methods do you accept?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <p>We accept all digital payments including UPI (Google Pay, PhonePe, Paytm), Bank Transfers, and Cash on Pickup/Delivery. For custom cake orders, a 50% advance deposit is required to confirm the booking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section section-padding" id="contact">
+    <div class="container contact-container">
+      <div class="contact-info-panel">
+        <span class="section-subtitle">Get in Touch</span>
+        <h2 class="section-title">Let's Discuss Your Celebration</h2>
+        <p class="section-desc">Have questions or want to plan a custom design? Reach out to Chef Ekta Mehra. We are happy to help make your event sweet and memorable!</p>
+        
+        <div class="contact-details-list">
+          <div class="contact-detail-item">
+            <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h4>Call or WhatsApp</h4>
+              <p><a href="tel:+917888901847">+91 78889 01847</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <h4>Location</h4>
+              <p>Barnala, Punjab, India</p>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h4>Baking Hours</h4>
+              <p>Monday - Sunday: 9:00 AM - 9:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Map Iframe (Barnala location) -->
+        <div class="map-wrapper">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27521.84976722802!2d75.52627042079074!3d30.372793284042858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39105ca237666eb9%3A0xe5c66d2149b5c2a1!2sBarnala%2C%20Punjab%20148101!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="220" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="contact-form-panel">
+        <h3>Send a Quick Message</h3>
+        <form class="contact-form" id="direct-contact-form">
+          <div class="form-group">
+            <label for="contact-name">Full Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="e.g. Gurpreet Singh" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Phone Number</label>
+            <input type="tel" id="contact-phone" name="phone" placeholder="e.g. +91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email Address (Optional)</label>
+            <input type="email" id="contact-email" name="email" placeholder="e.g. gurpreet@example.com">
+          </div>
+          <div class="form-group">
+            <label for="contact-msg">Your Message</label>
+            <textarea id="contact-msg" name="message" rows="5" placeholder="Write your questions or order requirements here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send Message on WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <span class="logo-serif">Ekta</span>
+          <span class="logo-sans">Bakers</span>
+        </a>
+        <p class="brand-desc">
+          Crafting premium, luxurious, and highly delicious homemade cakes, cupcakes, and bakery delicacies in Barnala, Punjab since 2019.
+        </p>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/917888901847" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Chef Ekta</a></li>
+          <li><a href="#categories">Our Range</a></li>
+          <li><a href="#custom-order">Cake Designer</a></li>
+          <li><a href="#courses">Baking Classes</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-hours">
+        <h3>Business Hours</h3>
+        <ul class="hours-list">
+          <li><span>Monday - Friday</span> <span>9:00 AM - 9:00 PM</span></li>
+          <li><span>Saturday</span> <span>9:00 AM - 10:00 PM</span></li>
+          <li><span>Sunday</span> <span>9:00 AM - 8:00 PM</span></li>
+          <li class="hours-note">Orders baked fresh on request. Prior booking required.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container bottom-content">
+        <p>&copy; 2026 Ekta Bakers. All rights reserved.</p>
+        <p>Handcrafted by Chef Ekta Mehra | Barnala, Punjab</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/917888901847?text=Hello%20Ekta%20Bakers!%20I'm%20visiting%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20customized%20cakes." 
+     target="_blank" 
+     class="whatsapp-floating" 
+     id="whatsapp-btn" 
+     aria-label="Chat with Ekta Bakers on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="tooltip-text">Chat with us!</span>
+  </a>
+
+  <!-- Student Login/Register Modal -->
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-content">
+      <button class="auth-modal-close" id="auth-close" aria-label="Close modal">&times;</button>
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="btn-tab-signin">Student Sign In</button>
+        <button class="auth-tab-btn" id="btn-tab-signup">Register Account</button>
+      </div>
+
+      <!-- Sign In Form -->
+      <form id="signin-form" class="auth-form-body">
+        <div class="form-group">
+          <label for="signin-email">Email Address or Phone</label>
+          <input type="text" id="signin-email" placeholder="student@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="signin-password">Password</label>
+          <input type="password" id="signin-password" placeholder="••••••••" required>
+        </div>
+        <div id="signin-error" class="auth-error-msg" style="display: none;"></div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In to Classroom</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="signup-form" class="auth-form-body" style="display: none;">
+        <div class="form-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" placeholder="e.g. Gurpreet Singh" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" placeholder="student@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-phone">Phone Number</label>
+          <input type="tel" id="signup-phone" placeholder="e.g. +91 98765 43210" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Create Password</label>
+          <input type="password" id="signup-password" placeholder="••••••••" required>
+        </div>
+        <div id="signup-error" class="auth-error-msg" style="display: none;"></div>
+        <button type="submit" class="btn btn-primary btn-block">Create Student Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Course Enrollment Modal -->
+  <div class="enroll-modal" id="enroll-modal">
+    <div class="enroll-modal-content">
+      <button class="enroll-modal-close" id="enroll-close" aria-label="Close modal">&times;</button>
+      <h3>Enroll in Masterclass</h3>
+      <div class="selected-course-details">
+        <span class="selected-course-title" id="enroll-course-title">Beginner to Pro Cake Masterclass</span>
+        <span class="selected-course-price" id="enroll-course-price">₹4,999</span>
+      </div>
+      <form id="enrollment-form" class="enrollment-form">
+        <input type="hidden" id="enroll-course-input" name="course_name">
+        <input type="hidden" id="enroll-price-input" name="course_price">
+        <div class="form-group">
+          <label for="student-name">Full Name</label>
+          <input type="text" id="student-name" name="student_name" placeholder="e.g. Gurpreet Singh" required>
+        </div>
+        <div class="form-group">
+          <label for="student-phone">Phone Number</label>
+          <input type="tel" id="student-phone" name="student_phone" placeholder="e.g. +91 98765 43210" required>
+        </div>
+        <div class="form-group">
+          <label for="student-email">Email Address</label>
+          <input type="email" id="student-email" name="student_email" placeholder="e.g. gurpreet@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="student-payment">Preferred Payment Method</label>
+          <select id="student-payment" name="payment_method" required>
+            <option value="UPI (GPay / PhonePe / Paytm)" selected>UPI (GPay / PhonePe / Paytm)</option>
+            <option value="Net Banking / Card">Net Banking / Credit Card</option>
+            <option value="Bank Transfer">Direct Bank Transfer</option>
+          </select>
+        </div>
+        <div class="payment-gateway-notice">
+          <p><i class="fa-solid fa-lock text-gold"></i> Payment gateway integration is coming soon. Clicking below will send your enrollment request on WhatsApp to get the payment QR code.</p>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Confirm & Proceed to Payment</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="app.js"></script>
+</body>
+</html>
