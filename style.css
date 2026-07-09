@@ -2810,3 +2810,95 @@ input, select, textarea, button {
     margin-top: 0.5rem;
   }
 }
+
+
+/* Cinematic Video Hero Layout */
+.hero-section {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 8rem 0;
+  background-color: var(--color-espresso);
+}
+
+.hero-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(43, 30, 22, 0.88) 0%, 
+    rgba(74, 55, 40, 0.78) 50%, 
+    rgba(43, 30, 22, 0.92) 100%
+  );
+  z-index: 2;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-content.full-width {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--color-white);
+  padding: 0 1.5rem;
+}
+
+.hero-content.full-width .hero-title {
+  font-size: 4rem;
+  color: var(--color-white);
+  margin: 1.5rem 0;
+  line-height: 1.15;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content.full-width .hero-desc {
+  color: var(--color-beige-light);
+  font-size: 1.25rem;
+  margin-bottom: 3.5rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  line-height: 1.6;
+}
+
+.hero-content.full-width .hero-subtitle {
+  color: var(--color-gold);
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 80vh;
+    padding: 6rem 0;
+  }
+  .hero-content.full-width .hero-title {
+    font-size: 2.6rem;
+  }
+  .hero-content.full-width .hero-desc {
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+  }
+}
