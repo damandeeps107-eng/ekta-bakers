@@ -2821,6 +2821,10 @@ input, select, textarea, button {
   overflow: hidden;
   padding: 8rem 0;
   background-color: var(--color-espresso);
+  /* Fallback image if video fails to load */
+  background-image: url('assets/hero_cake.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-video-wrapper {
