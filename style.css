@@ -2743,3 +2743,70 @@ input, select, textarea, button {
   border-radius: 8px;
   margin-left: auto;
 }
+
+/* Inline Checkout Card Styles */
+.courses-checkout-card {
+  background-color: var(--color-white);
+  padding: 3.5rem;
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1.5px solid rgba(212, 175, 55, 0.25);
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkout-card-header h3 {
+  font-family: var(--font-headings);
+  font-size: 1.8rem;
+  color: var(--color-brown);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.checkout-card-header p {
+  color: var(--color-gray);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.checkout-price-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+}
+
+.price-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--color-brown-light);
+  font-weight: 700;
+}
+
+.price-amount {
+  font-family: var(--font-headings);
+  font-size: 2.2rem;
+  color: var(--color-gold-dark);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .courses-checkout-card {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .checkout-price-display {
+    align-items: flex-start;
+    margin-top: 0.5rem;
+  }
+}

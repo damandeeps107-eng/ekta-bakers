@@ -501,7 +501,7 @@
             </ul>
             <div class="course-footer">
               <span class="course-mode"><i class="fa-solid fa-location-dot"></i> In-Person (Barnala)</span>
-              <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Beginner to Pro Cake Masterclass" data-price="₹4,999">
+              <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course-key="cake-masterclass">
                 <i class="fa-solid fa-cart-shopping"></i> Buy Course
               </button>
             </div>
@@ -528,7 +528,7 @@
             </ul>
             <div class="course-footer">
               <span class="course-mode"><i class="fa-solid fa-location-dot"></i> In-Person / Online</span>
-              <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Artisanal Cupcakes & Brownies Workshop" data-price="₹1,999">
+              <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course-key="cupcakes-brownies">
                 <i class="fa-solid fa-cart-shopping"></i> Buy Course
               </button>
             </div>
@@ -555,12 +555,69 @@
             </ul>
             <div class="course-footer">
               <span class="course-mode"><i class="fa-solid fa-location-dot"></i> In-Person (Barnala)</span>
-              <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Festive Hampers & Teatime Treats Masterclass" data-price="₹3,499">
+              <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course-key="festive-hampers">
                 <i class="fa-solid fa-cart-shopping"></i> Buy Course
               </button>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Inline Checkout Card -->
+      <div class="courses-checkout-card" id="checkout-block">
+        <div class="checkout-card-header text-center">
+          <h3>Secure Enrollment Portal</h3>
+          <p>Select your class below, fill in your details, and unlock instant access to your portal.</p>
+        </div>
+        <form id="enrollment-form" class="enrollment-form inline-enroll-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="student-name">Full Name</label>
+              <input type="text" id="student-name" name="student_name" placeholder="e.g. Gurpreet Singh" required>
+            </div>
+            <div class="form-group">
+              <label for="student-email">Email Address</label>
+              <input type="email" id="student-email" name="student_email" placeholder="student@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="student-phone">Phone Number</label>
+              <input type="tel" id="student-phone" name="student_phone" placeholder="e.g. +91 98765 43210" required>
+            </div>
+            <div class="form-group">
+              <label for="student-payment">Preferred Payment Method</label>
+              <select id="student-payment" name="payment_method" required>
+                <option value="UPI (GPay / PhonePe / Paytm)" selected>UPI (GPay / PhonePe / Paytm)</option>
+                <option value="Net Banking / Card">Net Banking / Credit Card</option>
+                <option value="Bank Transfer">Direct Bank Transfer</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="enroll-course-select">Select Masterclass</label>
+              <select id="enroll-course-select" name="course_select" required>
+                <option value="cake-masterclass" data-price="₹4,999" selected>Beginner to Pro Cake Masterclass — ₹4,999</option>
+                <option value="cupcakes-brownies" data-price="₹1,999">Artisanal Cupcakes & Brownies Workshop — ₹1,999</option>
+                <option value="festive-hampers" data-price="₹3,499">Festive Hampers & Teatime Treats — ₹3,499</option>
+              </select>
+            </div>
+            <div class="form-group justify-end">
+              <div class="checkout-price-display">
+                <span class="price-label">Total Amount:</span>
+                <span class="price-amount" id="inline-checkout-price">₹4,999</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-gateway-notice text-center" style="margin-top: 1.5rem;">
+            <p><i class="fa-solid fa-lock text-gold"></i> Payment gateway integration is coming soon. Clicking below will auto-register your account, send credentials, and open your classroom portal.</p>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="btn-submit-enroll">Confirm & Buy Course</button>
+        </form>
       </div>
 
       <div class="courses-features">
@@ -1005,47 +1062,7 @@
     </div>
   </div>
 
-  <!-- Course Enrollment Modal -->
-  <div class="enroll-modal" id="enroll-modal">
-    <div class="enroll-modal-content">
-      <button class="enroll-modal-close" id="enroll-close" aria-label="Close modal">&times;</button>
-      <h3>Enroll in Masterclass</h3>
-      <div class="selected-course-details">
-        <span class="selected-course-title" id="enroll-course-title">Beginner to Pro Cake Masterclass</span>
-        <span class="selected-course-price" id="enroll-course-price">₹4,999</span>
-      </div>
-      <form id="enrollment-form" class="enrollment-form">
-        <input type="hidden" id="enroll-course-input" name="course_name">
-        <input type="hidden" id="enroll-price-input" name="course_price">
-        <div class="form-group">
-          <label for="student-name">Full Name</label>
-          <input type="text" id="student-name" name="student_name" placeholder="e.g. Gurpreet Singh" required>
-        </div>
-        <div class="form-group">
-          <label for="student-phone">Phone Number</label>
-          <input type="tel" id="student-phone" name="student_phone" placeholder="e.g. +91 98765 43210" required>
-        </div>
-        <div class="form-group">
-          <label for="student-email">Email Address</label>
-          <input type="email" id="student-email" name="student_email" placeholder="e.g. gurpreet@example.com" required>
-        </div>
-        <div class="form-group">
-          <label for="student-payment">Preferred Payment Method</label>
-          <select id="student-payment" name="payment_method" required>
-            <option value="UPI (GPay / PhonePe / Paytm)" selected>UPI (GPay / PhonePe / Paytm)</option>
-            <option value="Net Banking / Card">Net Banking / Credit Card</option>
-            <option value="Bank Transfer">Direct Bank Transfer</option>
-          </select>
-        </div>
-        <div class="payment-gateway-notice">
-          <p><i class="fa-solid fa-lock text-gold"></i> Payment gateway integration is coming soon. Clicking below will send your enrollment request on WhatsApp to get the payment QR code.</p>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Confirm & Proceed to Payment</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Main JavaScript File -->
+    <!-- Main JavaScript File -->
   <script src="app.js"></script>
 </body>
 </html>

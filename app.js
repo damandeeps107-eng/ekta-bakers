@@ -369,107 +369,97 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 9. Course Enrollment Modal & Checkout Handler
+    // ==========================================================================
+  // 9. Course Enrollment & Inline Checkout Handler
   // ==========================================================================
-  const enrollModal = document.getElementById('enroll-modal');
-  const enrollClose = document.getElementById('enroll-close');
   const enrollmentForm = document.getElementById('enrollment-form');
-  const enrollCourseTitle = document.getElementById('enroll-course-title');
-  const enrollCoursePrice = document.getElementById('enroll-course-price');
-  const enrollCourseInput = document.getElementById('enroll-course-input');
-  const enrollPriceInput = document.getElementById('enroll-price-input');
+  const courseSelect = document.getElementById('enroll-course-select');
+  const inlinePriceDisplay = document.getElementById('inline-checkout-price');
   const enrollButtons = document.querySelectorAll('.btn-enroll-trigger');
 
-  // Open modal on click
+  // Handle course button click (select course and scroll to form)
   enrollButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const courseName = btn.getAttribute('data-course');
-      const coursePrice = btn.getAttribute('data-price');
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const courseKey = btn.getAttribute('data-course-key');
+      
+      // Update dropdown selection
+      if (courseSelect) {
+        courseSelect.value = courseKey;
+        
+        // Update price display
+        const selectedOption = courseSelect.options[courseSelect.selectedIndex];
+        const price = selectedOption.getAttribute('data-price');
+        inlinePriceDisplay.textContent = price;
+      }
 
-      enrollCourseTitle.textContent = courseName;
-      enrollCoursePrice.textContent = coursePrice;
-      enrollCourseInput.value = courseName;
-      enrollPriceInput.value = coursePrice;
-
-      enrollModal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Stop body scrolling
+      // Smooth scroll to the checkout card
+      const checkoutBlock = document.getElementById('checkout-block');
+      if (checkoutBlock) {
+        checkoutBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
   });
 
-  // Close modal
-  const closeEnrollModal = () => {
-    enrollModal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  };
-
-  enrollClose.addEventListener('click', closeEnrollModal);
-  
-  // Close when clicking backdrop
-  enrollModal.addEventListener('click', (e) => {
-    if (e.target === enrollModal) {
-      closeEnrollModal();
-    }
-  });
+  // Dynamic price update when select dropdown changes manually
+  if (courseSelect) {
+    courseSelect.addEventListener('change', () => {
+      const selectedOption = courseSelect.options[courseSelect.selectedIndex];
+      inlinePriceDisplay.textContent = selectedOption.getAttribute('data-price');
+    });
+  }
 
   // Handle enrollment submit (Simulate PayU checkout, Auto-register student, Dispatch WhatsApp/Email, Redirect)
-  enrollmentForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  if (enrollmentForm) {
+    enrollmentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-    const studentName = document.getElementById('student-name').value.trim();
-    const studentEmail = document.getElementById('student-email').value.trim().toLowerCase();
-    const studentPhone = document.getElementById('student-phone').value.trim();
-    const course = enrollCourseInput.value;
-    
-    // Map course name to key for dashboard
-    let courseKey = "cake-masterclass";
-    if (course.includes("Cupcakes")) courseKey = "cupcakes-brownies";
-    if (course.includes("Hampers")) courseKey = "festive-hampers";
+      const studentName = document.getElementById('student-name').value.trim();
+      const studentEmail = document.getElementById('student-email').value.trim().toLowerCase();
+      const studentPhone = document.getElementById('student-phone').value.trim();
+      const courseKey = courseSelect.value;
+      const courseName = courseSelect.options[courseSelect.selectedIndex].text.split(' — ')[0];
 
-    // Show processing state on button
-    const submitBtn = enrollmentForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Secure PayU Transaction...';
+      // Show processing state on button
+      const submitBtn = document.getElementById('btn-submit-enroll');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Secure PayU Transaction...';
 
-    // Simulate payment loading
-    setTimeout(() => {
-      submitBtn.innerHTML = '<i class="fa-solid fa-envelope"></i> Sending credentials to Email & WhatsApp...';
-      
-      // Auto-Register student in Local Database
-      const studentsList = JSON.parse(localStorage.getItem('studentsList') || '{}');
-      
-      // Check if user already exists, otherwise create new
-      if (!studentsList[studentEmail]) {
-        studentsList[studentEmail] = {
-          name: studentName,
-          email: studentEmail,
-          phone: studentPhone,
-          password: "password123", // Default password for new students
-          purchasedCourses: [courseKey]
-        };
-      } else {
-        // Add course if not already purchased
-        if (!studentsList[studentEmail].purchasedCourses.includes(courseKey)) {
-          studentsList[studentEmail].purchasedCourses.push(courseKey);
-        }
-      }
-      
-      localStorage.setItem('studentsList', JSON.stringify(studentsList));
-      // Log them in immediately
-      localStorage.setItem('activeStudent', JSON.stringify(studentsList[studentEmail]));
-      localStorage.setItem('courseKey', courseKey);
-
+      // Simulate payment loading
       setTimeout(() => {
-        submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Course Unlocked!';
-        alert(`Order Successful!\n\nCourse details, tutorial video links, and PDF cookbooks have been dispatched to:\n📧 Email: ${studentEmail}\n💬 WhatsApp: ${studentPhone}\n\nYour login password is: password123\n\nClick OK to open your student classroom portal.`);
+        submitBtn.innerHTML = '<i class="fa-solid fa-envelope"></i> Sending credentials to Email & WhatsApp...';
         
-        window.location.href = 'classroom.html';
-      }, 1500);
-    }, 2000);
-  });
+        // Auto-Register student in Local Database
+        const studentsList = JSON.parse(localStorage.getItem('studentsList') || '{}');
+        
+        if (!studentsList[studentEmail]) {
+          studentsList[studentEmail] = {
+            name: studentName,
+            email: studentEmail,
+            phone: studentPhone,
+            password: "password123",
+            purchasedCourses: [courseKey]
+          };
+        } else {
+          if (!studentsList[studentEmail].purchasedCourses.includes(courseKey)) {
+            studentsList[studentEmail].purchasedCourses.push(courseKey);
+          }
+        }
+        
+        localStorage.setItem('studentsList', JSON.stringify(studentsList));
+        localStorage.setItem('activeStudent', JSON.stringify(studentsList[studentEmail]));
+        localStorage.setItem('courseKey', courseKey);
 
+        setTimeout(() => {
+          submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Course Unlocked!';
+          alert(`Order Successful!\n\nCourse details, tutorial video links, and PDF cookbooks have been dispatched to:\n📧 Email: ${studentEmail}\n💬 WhatsApp: ${studentPhone}\n\nYour login password is: password123\n\nClick OK to open your student classroom portal.`);
+          
+          window.location.href = 'classroom.html';
+        }, 1500);
+      }, 2000);
+    });
+  }
 
-  // ==========================================================================
   // 10. Student Authentication & Session Management
   // ==========================================================================
   const authModal = document.getElementById('auth-modal');
