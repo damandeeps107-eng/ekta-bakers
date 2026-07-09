@@ -1656,6 +1656,11 @@ input, select, textarea, button {
 
 /* Mobile Viewports */
 @media (max-width: 768px) {
+  body {
+    background-attachment: scroll !important; /* Disable fixed parallax to prevent iOS/Android blur stretching bug */
+    background-size: 220px 220px !important; /* Make illustrations small, detailed and crisp on mobile viewports */
+  }
+
   .section-padding {
     padding: 5rem 0;
   }
@@ -2942,8 +2947,8 @@ input, select, textarea, button {
   background-position: center;
   opacity: 0;
   transform: scale(1.05);
-  transition: opacity 1.5s ease-in-out;
-  animation: kenBurnsLoop 24s infinite;
+  transition: opacity 1.2s ease-in-out;
+  animation: kenBurnsLoop 12s infinite;
 }
 
 .hero-slide:nth-child(1) {
@@ -2951,11 +2956,11 @@ input, select, textarea, button {
 }
 
 .hero-slide:nth-child(2) {
-  animation-delay: 8s;
+  animation-delay: 4s;
 }
 
 .hero-slide:nth-child(3) {
-  animation-delay: 16s;
+  animation-delay: 8s;
 }
 
 @keyframes kenBurnsLoop {
